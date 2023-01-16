@@ -1766,7 +1766,7 @@
 },
 {
   "type": "network_state",
-  "message0": "#blk-state_sensor# #blk-on_port# %1 ",
+  "message0": "#blk-state_sensor# read network state #blk-on_port# %1 ",
   "args0": [
     {
       "type": "field_dropdown",
