@@ -69,8 +69,6 @@
       <div class="menuBar">
         <div class="menuItem fileMenu">File</div>
         <div class="menuItem pythonMenu">Python</div>
-        <div class="menuItem robotMenu">Robot</div>
-        <div class="menuItem worldsMenu">Worlds</div>
         <div class="menuItem helpMenu">Help</div>
       </div>
       <!-- <div class="news">
@@ -279,9 +277,12 @@
     async function loadWhenReady() {
       if (typeof babylon.scene != 'undefined' && babylon.scene.isReady()) {
         await loadWorldScriptFromGET();
-        loadWorldFromGET();
-        loadRobotFromGET();
-        loadFilterFromGET();
+        // loadWorldFromGET();
+        // loadRobotFromGET();
+        // loadFilterFromGET();
+        // USE prespecified JSONs
+        simPanel.loadWorldURL("fgsvk23-swc-world.json");
+        main.loadRobotURL("fgsvk23-swc-robot.json");
       } else {
         setTimeout(loadWhenReady, 100);
       }

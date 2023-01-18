@@ -32,8 +32,8 @@ var main = new function() {
     self.$navs.click(self.tabClicked);
     self.$fileMenu.click(self.toggleFileMenu);
     self.$pythonMenu.click(self.togglePythonMenu);
-    self.$robotMenu.click(self.toggleRobotMenu);
-    self.$worldsMenu.click(self.toggleWorldsMenu);
+    // self.$robotMenu.click(self.toggleRobotMenu);
+    // self.$worldsMenu.click(self.toggleWorldsMenu);
     self.$helpMenu.click(self.toggleHelpMenu);
     self.$languageMenu.click(self.toggleLanguageMenu);
     self.$newsButton.click(self.showNews);
@@ -60,8 +60,8 @@ var main = new function() {
     $('#navBlocks').text(i18n.get('#main-blocks#'));
     $('#navSim').text(i18n.get('#main-sim#'));
     self.$fileMenu.text(i18n.get('#main-file#'));
-    self.$robotMenu.text(i18n.get('#main-robot#'));
-    self.$worldsMenu.text(i18n.get('#main-worlds#'));
+    // self.$robotMenu.text(i18n.get('#main-robot#'));
+    // self.$worldsMenu.text(i18n.get('#main-worlds#'));
     self.$helpMenu.text(i18n.get('#main-help#'));
   };
 
