@@ -14,7 +14,7 @@ body {
   flex-direction: column; }
 
 header {
-  background: #4994FB;
+  background: #3f377b;
   display: flex;
   flex-direction: row;
   color: white;
@@ -28,14 +28,14 @@ header {
     margin-bottom: -0.3em; }
   header #projectName, header #robotName {
     margin-left: 1em;
-    background: #76AFFC;
-    border: dashed 1px #5781BA;
+    background: #ffffff;
+    border: dashed 1px #2a2451;
     border-radius: 0.3em;
     padding: 0.3em 0.5em;
     position: relative;
-    color: white; }
+    color: rgb(18, 18, 18); }
   header #projectName::placeholder {
-    color: #95989A; }
+    color: #595959; }
   header .language {
     margin-left: auto;
     cursor: pointer;

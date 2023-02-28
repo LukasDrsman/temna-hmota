@@ -1,3 +1,5 @@
+var doc = "https://drive.google.com/file/d/11ri0Drf6I3liS6cOzc5yYVlY17yfGMJE/view?usp=share_link";
+
 var main = new function() {
   var self = this;
   // mapping of nav panel id to panel object, for py module panels.
@@ -259,10 +261,9 @@ var main = new function() {
       e.stopPropagation();
 
       let menuItems = [
+        {html: 'Pravidlá výzvy', line: false, callback: function() { self.openPage(doc); }},
         {html: 'Wiki', line: false, callback: function() { self.openPage('https://github.com/QuirkyCort/gears/wiki'); }},
         {html: 'Github', line: false, callback: function() { self.openPage('https://github.com/QuirkyCort/gears'); }},
-        {html: 'URL Generator', line: false, callback: function() { self.openPage('genURL.html'); }},
-        {html: i18n.get('#main-whats_new#'), line: false, callback: function() { self.showWhatsNew(true); }},
         {html: i18n.get('#main-privacy#'), line: false, callback: function() { self.openPage('privacy.html'); }},
         {html: i18n.get('#main-about#'), line: true, callback: self.openAbout },
         {html: i18n.get('#main-display_fps#'), line: false, callback: simPanel.toggleFPS }
@@ -453,19 +454,10 @@ var main = new function() {
       e.stopPropagation();
 
       let menuItems = [
-        {html: 'Ev3dev Mode', line: false, callback: self.switchToEv3dev},
-        {html: 'Pybricks Mode', line: true, callback: self.switchToPybricks},
         {html: 'Zoom In', line: false, callback: pythonPanel.zoomIn},
         {html: 'Zoom Out', line: false, callback: pythonPanel.zoomOut},
         {html: 'Reset Zoom', line: false, callback: pythonPanel.zoomReset},
       ];
-      var tickIndex;
-      if (blockly.generator == ev3dev2_generator) {
-        tickIndex = 0;
-      } else if (blockly.generator == pybricks_generator) {
-        tickIndex = 1;
-      }
-      menuItems[tickIndex].html = '<span class="tick">&#x2713;</span> ' + menuItems[tickIndex].html;
 
       menuDropDown(self.$pythonMenu, menuItems, {className: 'pythonMenuDropDown'});
     }
@@ -930,26 +922,8 @@ var main = new function() {
     let lastShown = localStorage.getItem('whatsNew');
     if (lastShown == null || parseInt(lastShown) < current || forceShow) {
       let options = {
-        title: 'What\'s New',
-        message:
-          '<h3>21 Aug 2022 (Superpowered Complete!)</h3>' +
-          '<p>The FIRST Lego League 2022/2023 Superpowered missions are now complete.</p>' +
-          '<p>View a demo video <a href="https://youtu.be/-aoI6su6m84">on YouTube.</a></p>' +
-          '<h3>8 Aug 2022 (Superpowered)</h3>' +
-          '<p>Added the FIRST Lego League 2022/2023 Superpowered mission.</p>' +
-          '<p>' +
-            'It is incomplete for now, with only 4 out of 9 major mission models in place, but I will be adding to it over the coming days (...weeks?). ' +
-            'If you would like to help, contact me to find out how.' +
-          '</p>' +
-          '<h3>8 Aug 2022 (Challenges World)</h3>' +
-          '<p>' +
-            'A new "Challenges" world has been added. ' +
-            'It is using the new script loading system, so you will need to use this URL <a href="https://gears.aposteriori.com.sg/index.html?worldScripts=world_challenges">https://gears.aposteriori.com.sg/index.html?worldScripts=world_challenges</a> to access it.' +
-          '</p>' +
-          '<p>' +
-            'The "Challenges" world is designed for beginners, and consists of a series of basic coding challenges. ' +
-            'Educators who would like to create their own challenges should look at the <a href="https://github.com/QuirkyCort/gears/blob/master/public/js/worlds/extra/world_challenges.js">source code</a> to learn how.' +
-          '</p>'
+        title: 'Vitajte',
+        message: `<h3>Základné inštrukcie</h3><ul><li>Pred riešením výzvy si dôkladne preštudujte <a href="${doc}" target="_blank">pravidlá</a>.</li><li>Pre export súborov na odovzdanie stlačte "File &gt; Export ZIP pre odoslanie"</li><li>Súbory si pravidelne ukladajte. Aplikácia beží na vašom zariadení. Žiadne dáta niesu ukladané na server.</li><li>Po zmenách v Python kóde nie je možné sa vrátiť do Blocky editoru. Ukladajte si vaše súbory priebežne.</li></ul></div>`
       }
       acknowledgeDialog(options, function(){
         localStorage.setItem('whatsNew', current);
@@ -960,15 +934,8 @@ var main = new function() {
   // Display news
   this.showNews = function() {
     let options = {
-      title: 'News',
-      message:
-        '<h3>Open MINT Masters</h3>' +
-        '<p>' +
-        'Registration for the online Open MINT Masters is open for teams of up to 5 pax, age 10 to 19. ' +
-        'The event is open to all teams around the world and registration closes on 31 May 2022.' +
-        '</p><p>' +
-        '<a href="http://m-learning.info" target="_blank">Find out more and register here.</a> (Site is in German, but readable via Google translate on Chrome.)' +
-        '</p>'
+      title: 'Vitajte',
+      message: `<h3>Základné inštrukcie</h3><ul><li>Pred riešením výzvy si dôkladne preštudujte <a href="${doc}" target="_blank">pravidlá</a>.</li><li>Pre export súborov na odovzdanie stlačte "File &gt; Export ZIP pre odoslanie"</li><li>Súbory si pravidelne ukladajte. Aplikácia beží na vašom zariadení. Žiadne dáta niesu ukladané na server.</li><li>Po zmenách v Python kóde nie je možné sa vrátiť do Blocky editoru. Ukladajte si vaše súbory priebežne.</li></ul></div>`
     }
     acknowledgeDialog(options);
   };
