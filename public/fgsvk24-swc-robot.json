@@ -104,14 +104,6 @@
       "options": {}
     },
     {
-      "type": "StateSensor",
-      "options": {
-        "step": 5,
-        "spread": 50,
-        "min": 75
-      }
-    },
-    {
       "type": "GPSSensor",
       "position": [
         0,

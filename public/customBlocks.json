@@ -1765,66 +1765,6 @@
   "helpUrl": "https://github.com/QuirkyCort/gears/wiki/Touch-Sensor"
 },
 {
-  "type": "network_state",
-  "message0": "#blk-state_sensor# read network state #blk-on_port# %1 ",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "port",
-      "options": [
-        [
-          "Auto",
-          "AUTO"
-        ],
-        [
-          "1",
-          "1"
-        ],
-        [
-          "2",
-          "2"
-        ],
-        [
-          "3",
-          "3"
-        ],
-        [
-          "4",
-          "4"
-        ],
-        [
-          "5",
-          "5"
-        ],
-        [
-          "6",
-          "6"
-        ],
-        [
-          "7",
-          "7"
-        ],
-        [
-          "8",
-          "8"
-        ],
-        [
-          "9",
-          "9"
-        ],
-        [
-          "10",
-          "10"
-        ]
-      ]
-    }
-  ],
-  "output": "Number",
-  "colour": 160,
-  "tooltip": "",
-  "helpUrl": "none"
-},
-{
   "type": "wait_for_state",
   "message0": "#blk-wait_until_touch_sensor# #blk-on_port# %1 %2",
   "args0": [
