@@ -7,8 +7,7 @@ var ev3dev2_generator = new function() {
     GyroSensor: 1,
     GPSSensor: 1,
     TouchSensor: 1,
-    Pen: 1,
-    StateSensor: 1
+    Pen: 1
   };
 
   // Load Python generators
@@ -47,7 +46,6 @@ var ev3dev2_generator = new function() {
     Blockly.Python['penSetColor'] = self.penSetColor;
     Blockly.Python['penSetWidth'] = self.penSetWidth;
     Blockly.Python['touch_state'] = self.touch_state;
-    Blockly.Python['network_state'] = self.network_state;
     Blockly.Python['wait_for_state'] = self.wait_for_state;
     Blockly.Python['button_state'] = self.button_state;
     Blockly.Python['wait_until_button'] = self.wait_until_button;
@@ -115,9 +113,6 @@ var ev3dev2_generator = new function() {
         self.autoPorts[sensor.type] = i;
       } else if (sensor.type == 'Pen') {
         sensorsCode += 'pen_in' + i + ' = Pen(INPUT_' + i + ')\n';
-        self.autoPorts[sensor.type] = i;
-      } else if (sensor.type == 'StateSensor') {
-        sensorsCode += 'state_sensor_in' + i + ' = StateSensor(INPUT_' + i + ')\n';
         self.autoPorts[sensor.type] = i;
       }
       i++;
@@ -687,14 +682,6 @@ var ev3dev2_generator = new function() {
     }
 
     var code = 'touch_sensor_in' + dropdown_port + '.' + stateStr;
-    return [code, Blockly.Python.ORDER_ATOMIC];
-  };
-
-  this.network_state = function(block) {
-    var dropdown_port = block.getFieldValue('port');
-    dropdown_port = self.getPort(dropdown_port, 'StateSensor');
-
-    var code = 'state_sensor_in' + dropdown_port + '.network_value';
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 

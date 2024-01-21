@@ -341,22 +341,6 @@ var $builtinmodule = function(name) {
 
   }, 'TouchSensor', []);
 
-  mod.StateSensor = Sk.misceval.buildClass(mod, function($gbl, $loc) {
-    var self = this;
-
-    $loc.__init__ = new Sk.builtin.func(function(self, address) {
-      self.sensor = robot.getComponentByPort(address.v);
-      if (!self.sensor || self.sensor.type != 'StateSensor') {
-        throw new Sk.builtin.TypeError('No state sensor connected to ' + String(address.v));
-      }
-    });
-
-    $loc.getValue = new Sk.builtin.func(function(self) {
-      return Sk.ffi.remapToPy(self.sensor.getValue());
-    });
-
-  }, 'StateSensor', []);
-
   mod.Sound = Sk.misceval.buildClass(mod, function($gbl, $loc) {
     var self = this;
 

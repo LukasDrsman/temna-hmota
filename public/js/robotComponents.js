@@ -2699,30 +2699,6 @@ function TouchSensor(scene, parent, pos, rot, port, options) {
   this.init();
 }
 
-function StateSensor( port, options) {
-  var self = this;
-
-  this.type = 'StateSensor';
-  this.port = port;
-  this.options = options;
-
-  this.init = function() {
-    let C_inc = options.spread / options.step;
-    self.value = options.step * Math.floor(C_inc * Math.random()) + options.min;
-  };
-
-  this.getValue = function() {
-    return self.value;
-  };
-
-  this.reset = function() {
-    let C_inc = options.spread / options.step;
-    self.value = options.step * Math.floor(C_inc * Math.random()) + options.min;
-  };
-
-  this.init();
-}
-
 
 
 // Motorized linear

@@ -475,13 +475,8 @@ function Robot() {
           componentConfig.rotation,
           'out' + PORT_LETTERS[(++self.motorCount)],
           componentConfig.options);
-      } else if (componentConfig.type == 'StateSensor') {
-        component = new StateSensor(
-          'in' + (++self.sensorCount),
-          componentConfig.options);
       } else {
         console.log('Unrecognized component type: ' + componentConfig.type);
-        console.log(componentConfig.type == 'StateSensor');
         console.log(componentConfig.type);
       }
       if (component != null) {

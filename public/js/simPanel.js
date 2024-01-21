@@ -541,11 +541,6 @@ var simPanel = new function() {
           sensor.port + ': ' + i18n.get('#sim-pen#'),
           []
         );
-      } else if (sensor.type == 'StateSensor') {
-        tmp = genDiv(
-          sensor.port + ': ' + i18n.get('#sim-state#'),
-          [i18n.get('#sim-random_value#')]
-        );
       } else {
         console.log(sensor);
       }
@@ -658,8 +653,6 @@ var simPanel = new function() {
         sensor[1][0].text(Math.round(sensor[0].position));
       } else if (sensor[0].type == 'MagnetActuator') {
         sensor[1][0].text(Math.round(sensor[0].power * 100 / sensor[0].options.maxPower));
-      } else if (sensor[0].type == 'StateSensor') {
-        sensor[1][0].text(sensor[0].getValue());
       }
     });
   };
@@ -1157,11 +1150,6 @@ var simPanel = new function() {
 
   // Run the simulator
   this.runSim = function() {
-    for (let i = 0; i < robot.components.length; i++) {
-      if (robot.components[i].type == 'StateSensor') {
-        robot.components[i].reset;
-      }
-    }
     if (skulpt.running) {
       self.stopSim();
     } else {

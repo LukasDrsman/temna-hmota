@@ -7,8 +7,7 @@ var pybricks_generator = new function() {
     GyroSensor: 1,
     GPSSensor: 1,
     TouchSensor: 1,
-    Pen: 1,
-    StateSensor: 1
+    Pen: 1
   };
 
   // Load Python generators
@@ -50,7 +49,6 @@ var pybricks_generator = new function() {
     Blockly.Python['button_state'] = self.button_state;
     Blockly.Python['wait_until_button'] = self.wait_until_button;
     Blockly.Python['wait_until'] = self.wait_until;
-    Blockly.Python['network_state'] = self.network_state;
   };
 
   // Generate python code
@@ -99,8 +97,6 @@ var pybricks_generator = new function() {
       } else if (sensor.type == 'Pen') {
         sensorsCode += 'pen_in' + i + ' = Pen(Port.S' + i + ')\n';
         self.autoPorts[sensor.type] = i;
-      } else if (sensor.type == 'StateSensor') {
-        sensorsCode += 'state_sensor_in' + i + '= StateSensor(Port.S' + i + ')\n';
       }
       i++;
     }
